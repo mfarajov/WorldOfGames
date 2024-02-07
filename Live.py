@@ -1,3 +1,4 @@
+import os
 
 def welcome(name):
     print(f"Welcome to the World of Games (WoG), {name}.\nHere you can find many cool games to play.")
@@ -10,7 +11,10 @@ def load_game(games, difficulties):
 
     while True:
         try:
-            game_choice = int(input("Enter your choice game (number): "))
+            if 'JENKINS_URL' in os.environ:
+                game_choice = int(input("Enter your choice game (number): "))
+            else:
+                game_choice = int(os.getenv('GAME_CHOICE', '1'))
             if 1 <= game_choice <= len(games):
                 break
             else:
