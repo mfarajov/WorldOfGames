@@ -38,6 +38,7 @@ class CurrencyRouletteGame(Game):
             print('Congratulations, You won!')
         else:
             print('Unfortunately You lost!')
+            print(f'Approximate amount is supposed to be between {interval[0]} and {interval[1]}')
 
 
 GameRegistry.register_game(CurrencyRouletteGame)
