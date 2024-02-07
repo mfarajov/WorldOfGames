@@ -1,6 +1,7 @@
 import random
 from Games import Game
 from GameRegistry import GameRegistry
+from inputs import get_input
 
 
 class GuessGame(Game):
@@ -20,7 +21,8 @@ class GuessGame(Game):
     def get_guess_from_user(self):
         while True:
             try:
-                user_guess = int(input(f"Enter a guess between 1 and {self.difficulty}: "))
+                # user_guess = int(input(f"Enter a guess between 1 and {self.difficulty}: "))
+                user_guess = get_input('USER_GUESS', f"Enter a guess between 1 and {self.difficulty}: ", int)
                 if 1 <= user_guess <= self.difficulty:
                     return user_guess
                 else:
