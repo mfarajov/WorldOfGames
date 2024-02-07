@@ -1,15 +1,8 @@
+from inputs import get_input
 from Live import welcome, load_game
 from MemoryGame import *
 from GuessGame import *
 from CurrencyRouletteGame import *
-import os
-
-
-def get_input(env_var, prompt, cast_type=str):
-    value = os.getenv(env_var)
-    if value is None:
-        value = input(prompt)
-    return cast_type(value)
 
 
 def main():

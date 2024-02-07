@@ -3,6 +3,7 @@ import time
 from Games import Game
 from GameRegistry import GameRegistry
 import os
+from inputs import get_input
 
 
 class MemoryGame(Game):
@@ -20,7 +21,8 @@ class MemoryGame(Game):
 
     def get_list_from_user(self):
         print(f"Enter {self.difficulty} numbers separated by spaces:")
-        return [int(x) for x in input().split()]
+        # return [int(x) for x in input().split()]
+        return get_input("USER_SEQUENCE", "Enter the sequence you remember: ", lambda x: [int(num) for num in x.split(" ")])
 
     @staticmethod
     def is_list_equal(list1, list2):
