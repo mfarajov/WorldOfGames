@@ -1,6 +1,13 @@
 import os
 
 
+def get_input(env_var, prompt, cast_type=str):
+    value = os.getenv(env_var)
+    if value is None:
+        value = input(prompt)
+    return cast_type(value)
+
+
 def welcome(name):
     print(f"Welcome to the World of Games (WoG), {name}.\nHere you can find many cool games to play.")
 
@@ -12,7 +19,8 @@ def load_game(games, difficulties):
 
     while True:
         try:
-            game_choice = int(input("Enter your choice game (number): "))
+            # game_choice = int(input("Enter your choice game (number): "))
+            game_choice = get_input("GAME_CHOICE", "Enter your choice game (number): ", int)
             if 1 <= game_choice <= len(games):
                 break
             else:
@@ -22,7 +30,8 @@ def load_game(games, difficulties):
 
     while True:
         try:
-            difficulty = int(input(f"Please choose game difficulty from 1 to {len(difficulties)}: "))
+            # difficulty = int(input(f"Please choose game difficulty from 1 to {len(difficulties)}: "))
+            difficulty = get_input("DIFFICULTY", f"Please choose game difficulty from 1 to {len(difficulties)}: ", int)
             if 1 <= difficulty <= len(difficulties):
                 break
             else:
