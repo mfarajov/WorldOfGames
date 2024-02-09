@@ -1,9 +1,10 @@
 pipeline {
     agent {
-        node {
-            label 'docker-agent-python'
-            }
-      }
+        docker {
+            image 'my-custom-python-image:latest' // Replace with your custom image name and tag
+            args '-u root' // Use root user inside Docker (be cautious with this!)
+        }
+    }
     triggers {
         pollSCM '*/5 * * * *'
     }
