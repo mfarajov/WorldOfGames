@@ -39,8 +39,10 @@ class GuessGame(Game):
         print('Secret number was: ', self.secret_number)
         if self.compare_results(user_guess):
             print('Congratulations! You won the Guess Game!')
+            return True
         else:
             print('Unfortunately You lost the Guess Game!')
+            return False
 
 
 GameRegistry.register_game(GuessGame)

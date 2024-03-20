@@ -1,4 +1,5 @@
 from inputs import get_input
+from Score import add_score
 
 
 def welcome(name):
@@ -47,8 +48,11 @@ def load_game(games, difficulties):
         game_instance = CurrencyRouletteGame(difficulty)
 
     game_instance.display_welcome_message()
-    game_instance.play()
+    game_won = game_instance.play()
     game_instance.end_game()
+
+    if game_won:
+        add_score(difficulty)
 
     return games[game_choice], difficulty
 

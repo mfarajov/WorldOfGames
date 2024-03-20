@@ -42,8 +42,10 @@ class MemoryGame(Game):
         print('Number list was: ', sequence)
         if self.is_list_equal(sequence, user_sequence):
             print('Congratulations! You won the Memory Game!')
+            return True
         else:
             print('Unfortunately You lost the Memory Game!')
+            return False
 
 
 GameRegistry.register_game(MemoryGame)

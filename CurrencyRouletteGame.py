@@ -36,9 +36,11 @@ class CurrencyRouletteGame(Game):
         user_guess = self.get_guess_from_user(amount_in_usd)
         if interval[0] <= user_guess <= interval[1]:
             print('Congratulations, You won!')
+            return True
         else:
             print('Unfortunately You lost!')
             print(f'Approximate amount is supposed to be between {interval[0]} and {interval[1]}')
+            return False
 
 
 GameRegistry.register_game(CurrencyRouletteGame)
