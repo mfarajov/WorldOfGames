@@ -20,7 +20,7 @@ def test_scores_service(url):
 
 
 def main_function():
-    test_url = 'http://127.0.0.1:8777'
+    test_url = 'http://localhost:8777'
 
     if test_scores_service(test_url):
         print('Test passed!')
